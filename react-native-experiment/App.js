@@ -1,18 +1,14 @@
 import {
-  Button,
-  ScrollView,
   StyleSheet,
-  Text,
-  TextInput,
   View,
 } from "react-native";
-import ProductDetailItem from "./screens/ProductDetailItem";
 import FavoriteItem from "./screens/FavoriteItem";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProductContext from "./context";
 import ProductList from "./screens/ProductList";
+import ProductDetail from "./screens/ProductDetail";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -44,9 +40,8 @@ export default function App() {
               component={BottomTabs}
             />
             <Stack.Screen
-              options={{ headerShown: false }}
-              name="productDetail"
-              component={ProductDetailItem}
+              name="ProductDetail"
+              component={ProductDetail}
             />
           </Stack.Navigator>
         </NavigationContainer>
