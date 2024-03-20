@@ -6,12 +6,13 @@ import {
   TextInput,
   View,
 } from "react-native";
-import ProductDetailItem from "./components/ProductDetailItem";
-import FavoriteItem from "./components/FavoriteItem";
-import ProductListItem from "./components/ProductListItem";
+import ProductDetailItem from "./screens/ProductDetailItem";
+import FavoriteItem from "./screens/FavoriteItem";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import ProductContext from "./context";
+import ProductList from "./screens/ProductList";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,7 +22,7 @@ function BottomTabs() {
       <Tab.Screen
         options={{ title: "Product List" }}
         name="ProductList"
-        component={ProductListItem}
+        component={ProductList}
       />
       <Tab.Screen
         options={{ title: "Favorite" }}
@@ -33,22 +34,25 @@ function BottomTabs() {
 }
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            options={{ headerShown: false }}
-            name="bottomTabs"
-            component={BottomTabs}
-          />
-          <Stack.Screen
-            options={{ headerShown: false }}
-            name="productDetail"
-            component={ProductDetailItem}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
+    <ProductContext>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="bottomTabs"
+              component={BottomTabs}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="productDetail"
+              component={ProductDetailItem}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </ProductContext>
+
   );
 }
 
