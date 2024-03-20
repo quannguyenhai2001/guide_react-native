@@ -1,0 +1,35 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+react-native-experiment/node_modules/
+
+# Expo
+react-native-experiment/.expo/
+react-native-experiment/dist/
+react-native-experiment/web-build/
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+react-native-experiment/.metro-health-check*
+
+# debug
+react-native-experiment/npm-debug.*
+react-native-experiment/yarn-debug.*
+react-native-experiment/yarn-error.*
+
+# macOS
+react-native-experiment/.DS_Store
+*.pem
+
+# local env files
+react-native-experiment/.env*.local
+
+# typescript
+*.tsbuildinfo
